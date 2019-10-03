@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wah_short_C_001.wav-7d388260614572164cf0e60d666a3b3f.sample"
+
+[deps]
+
+source_file="res://wah_short_C_001.wav"
+dest_files=[ "res://.import/wah_short_C_001.wav-7d388260614572164cf0e60d666a3b3f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Roller Coaster Voices Cheers.wav-341b715dcfcef780ec2dbe16e2853deb.sample"
+
+[deps]
+
+source_file="res://Roller Coaster Voices Cheers.wav"
+dest_files=[ "res://.import/Roller Coaster Voices Cheers.wav-341b715dcfcef780ec2dbe16e2853deb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
