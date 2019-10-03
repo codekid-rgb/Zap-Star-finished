@@ -39,6 +39,9 @@ position = Vector2( 96, 128 )
 [node name="enimy 4" parent="." instance=ExtResource( 5 )]
 position = Vector2( -768, 320 )
 
+[node name="enimy 7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 269, 316 )
+
 [node name="enimy 6" parent="." instance=ExtResource( 5 )]
 position = Vector2( -1664, 544 )
 
