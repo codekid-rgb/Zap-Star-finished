@@ -9,27 +9,33 @@ anchor_bottom = 1.0
 script = ExtResource( 1 )
 
 [node name="Sky" type="Sprite" parent="."]
-position = Vector2( -64, 173 )
+position = Vector2( -101.051, 94.0179 )
+scale = Vector2( 1.00282, 0.994359 )
 texture = ExtResource( 2 )
 
 [node name="Sky" type="Sprite" parent="Sky"]
-position = Vector2( 768, 127 )
+position = Vector2( 783.056, 123.594 )
+scale = Vector2( 0.952949, 1.01064 )
 texture = ExtResource( 2 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -59.0
+margin_right = 20.0
+margin_bottom = -30.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 289.0
-margin_top = 173.0
-margin_right = 351.0
-margin_bottom = 187.0
+margin_left = 246.0
+margin_top = 187.0
+margin_right = 394.0
+margin_bottom = 201.0
 
 [node name="name" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 62.0
+margin_right = 148.0
 margin_bottom = 14.0
-text = "platfomer"
+text = "jump! little man! jump!"
 
 [node name="start" type="Button" parent="CenterContainer/VBoxContainer/name"]
 margin_left = -1.0

@@ -24,5 +24,6 @@ position = Vector2( 216.299, 231.264 )
 
 [node name="world complet" parent="TileMap" instance=ExtResource( 4 )]
 position = Vector2( 23.1264, 258.471 )
+world_scene = "res://wprld13.tscn"
 
 [connection signal="fell" from="TileMap/Player" to="." method="_on_Player_fell"]

@@ -23,6 +23,6 @@ position = Vector2( 60, -34 )
 
 [node name="world complet" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2432, 288 )
-world_scene = "res://start menu.tscn"
+world_scene = "res://world 12.tscn"
 
 [connection signal="fell" from="Player" to="." method="_on_Player_fell"]

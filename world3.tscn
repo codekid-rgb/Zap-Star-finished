@@ -30,9 +30,11 @@ position = Vector2( -1024, 96 )
 
 [node name="enimy 1" parent="." instance=ExtResource( 5 )]
 position = Vector2( -1024, 160 )
+ground_speed = 1000
 
 [node name="enimy 2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -608, 256 )
+ground_speed = 1000
 
 [node name="enimy 3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 64, 256 )

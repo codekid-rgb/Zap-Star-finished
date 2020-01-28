@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://enimy 1.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Enimi 1.png" type="Texture" id=2]
+[ext_resource path="res://Area2D.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+extents = Vector2( 25.3983, 32 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 26.2346
 
 [node name="enimy 1" type="KinematicBody2D"]
-position = Vector2( 256, 64 )
+position = Vector2( 281.924, 74.453 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -17,10 +21,19 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="icon" type="Sprite" parent="."]
+position = Vector2( 0.284409, 0 )
+scale = Vector2( 1.00889, 1 )
 texture = ExtResource( 2 )
 
 [node name="sensor" type="RayCast2D" parent="."]
-position = Vector2( 34, 0 )
+position = Vector2( 16.857, 3.76309 )
 enabled = true
 cast_to = Vector2( 0, 35 )
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 3 )
+world_scene = "res://World1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
 
