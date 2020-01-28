@@ -3,7 +3,6 @@ extends KinematicBody2D
 signal fell
 var did_fall = false
 
-
 const UP = Vector2(0, -1)
 const Gravity = 20
 const acceleration = 50
@@ -45,9 +44,9 @@ func _physics_process(delta):
 			$sprite.play("fall")
 		if frction == true:
 			motion.x = lerp(motion.x, 0,0.05)
-			
-	motion=move_and_slide(motion,UP)
 	
+	motion = move_and_slide(motion, UP)
+
 	if !did_fall && position.y > RESPAWN_HEIGHT:
 		did_fall = true
 		emit_signal("fell")

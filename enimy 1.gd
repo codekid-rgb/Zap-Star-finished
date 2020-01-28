@@ -14,8 +14,7 @@ func _physics_process(delta):
 	motion.y += graviti
 	if is_on_floor():
 		motion.x = lerp(motion.x, walking_diretion * ground_speed, 0.5)
-		
-		
+	
 	motion = move_and_slide(motion, UP)
 
 	if is_on_wall() || $sensor.is_colliding() == false:

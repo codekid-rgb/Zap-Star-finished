@@ -16,6 +16,11 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
@@ -23,11 +28,6 @@ animations = [ {
 "loop": true,
 "name": "run",
 "speed": 12.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "fall",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
@@ -50,23 +50,23 @@ __meta__ = {
 frames = SubResource( 1 )
 animation = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="player_collider" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 6 )
 shape = SubResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="player_camera" type="Camera2D" parent="."]
 current = true
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 smoothing_enabled = true
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="player_ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="player_ParallaxLayer" type="ParallaxLayer" parent="player_ParallaxBackground"]
 motion_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 640, 640 )
 
-[node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sky" type="Sprite" parent="player_ParallaxBackground/player_ParallaxLayer"]
 position = Vector2( 320, 320 )
 texture = ExtResource( 6 )
 
