@@ -8,7 +8,7 @@ var walking_diretion = 1
 
 func flip_diretion():
 	walking_diretion *= -1
-	$sensor.position.x *= -1
+	$en_floor_sensor.position.x *= -1
 
 func _physics_process(delta):
 	motion.y += graviti
@@ -17,11 +17,17 @@ func _physics_process(delta):
 	
 	motion = move_and_slide(motion, UP)
 
-	if is_on_wall() || $sensor.is_colliding() == false:
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.collider
+		if collider.has_method("do_damage"):
+			print("Collided with something that takes damage: ", collider.name)
+			collider.do_damage(5)
+			
+
+	# If the agent is touching a wall or the sensor is not touching a floor (cliff) flip
+	if is_on_wall() || $en_floor_sensor.is_colliding() == false:
 		flip_diretion()
-
-
-
-
-
-
+		
+		
+	

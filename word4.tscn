@@ -43,7 +43,7 @@ position = Vector2( -768, 320 )
 position = Vector2( 269, 316 )
 
 [node name="enimy 6" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1664, 544 )
+position = Vector2( -1487.64, 550.029 )
 
 [node name="enimy 5" parent="." instance=ExtResource( 5 )]
 position = Vector2( -1280, 480 )

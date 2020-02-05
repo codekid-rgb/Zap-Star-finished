@@ -26,15 +26,15 @@ __meta__ = {
 }
 
 [node name="spawn" type="Position2D" parent="."]
-position = Vector2( -1024, 96 )
+position = Vector2( -1029.14, 109.718 )
 
 [node name="enimy 1" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1024, 160 )
+position = Vector2( -199.203, 252.597 )
 ground_speed = 1000
 
 [node name="enimy 2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -608, 256 )
-ground_speed = 1000
+ground_speed = 10
 
 [node name="enimy 3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 64, 256 )
