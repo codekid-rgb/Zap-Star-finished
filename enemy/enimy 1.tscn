@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://enemy/enimy 1.gd" type="Script" id=1]
+[ext_resource path="res://enemy/Enimi 1.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.3983, 32 )
+
+[node name="enimy 1" type="KinematicBody2D"]
+position = Vector2( 281.924, 74.453 )
+collision_layer = 545
+collision_mask = 33
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="en_collide" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="en_icon" type="Sprite" parent="."]
+position = Vector2( 0.284409, 0 )
+scale = Vector2( 1.00889, 1 )
+texture = ExtResource( 2 )
+
+[node name="en_floor_sensor" type="RayCast2D" parent="."]
+position = Vector2( 16.857, 3.76309 )
+enabled = true
+cast_to = Vector2( 0, 35 )
+
