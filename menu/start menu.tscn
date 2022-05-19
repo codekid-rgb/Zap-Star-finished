@@ -1,71 +1,109 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://menu/start menu.gd" type="Script" id=1]
 [ext_resource path="res://Stars.png" type="Texture" id=2]
-[ext_resource path="res://Bulet .png" type="Texture" id=3]
+[ext_resource path="res://Untitled_Artwork 8.png" type="Texture" id=3]
 [ext_resource path="res://enemy/Enimi 1.png" type="Texture" id=4]
-[ext_resource path="res://World complete .png" type="Texture" id=5]
+[ext_resource path="res://Untitled_Artwork 10.png" type="Texture" id=5]
+[ext_resource path="res://worlds/Chiptronical.ogg" type="AudioStream" id=6]
+[ext_resource path="res://zap 1 lisinse.png" type="Texture" id=7]
 
 [node name="start menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Sky" type="Sprite" parent="."]
-position = Vector2( 405.571, 92.3889 )
+position = Vector2( 314.93, 255.35 )
 scale = Vector2( 1.00282, 0.994359 )
 texture = ExtResource( 2 )
 
 [node name="Sky2" type="Sprite" parent="."]
-position = Vector2( -232.186, 97.276 )
+position = Vector2( 759.387, 226.789 )
 scale = Vector2( 1.00282, 0.994359 )
 texture = ExtResource( 2 )
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -10.0515
-margin_top = -106.056
-margin_right = 33.9485
-margin_bottom = -80.0558
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 5.317
+autoplay = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 312.0
-margin_top = 186.0
-margin_right = 372.0
-margin_bottom = 200.0
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 686.818, 271.044 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
 
-[node name="name" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 60.0
-margin_bottom = 14.0
+[node name="sign" type="Label" parent="."]
+margin_left = 79.5399
+margin_top = 233.582
+margin_right = 646.54
+margin_bottom = 270.582
 custom_colors/font_color = Color( 1, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0.27451, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0.109804, 1, 1 )
-text = "ZAP STAR"
+text = "I started this project 9 years old and I  made this game with only a little help programming from my dad."
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="start" type="Button" parent="CenterContainer/VBoxContainer/name"]
-margin_left = -20.4345
-margin_top = 19.5819
-margin_right = 122.565
-margin_bottom = 89.5819
-text = "new game"
+[node name="start" type="Button" parent="."]
+margin_left = 282.972
+margin_top = 152.662
+margin_right = 425.971
+margin_bottom = 222.662
+custom_colors/font_color_disabled = Color( 1, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 1, 1 )
+text = "GO!"
+icon = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="start2" type="Button" parent="."]
+margin_left = 118.664
+margin_top = 152.662
+margin_right = 261.665
+margin_bottom = 222.662
+custom_colors/font_color_disabled = Color( 1, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 1, 1 )
+text = "training"
 icon = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="quit" type="Button" parent="CenterContainer/VBoxContainer/name"]
-margin_left = 128.029
-margin_top = 20.8633
-margin_right = 231.029
-margin_bottom = 90.8633
+[node name="quit" type="Button" parent="."]
+margin_left = 445.732
+margin_top = 151.771
+margin_right = 548.732
+margin_bottom = 221.771
+custom_colors/font_color_disabled = Color( 1, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 1, 1 )
 text = "quit"
 icon = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="load" type="Button" parent="CenterContainer/VBoxContainer/name"]
-margin_left = -128.75
-margin_top = 19.7198
-margin_right = -23.7497
-margin_bottom = 89.7198
-text = "load"
-icon = ExtResource( 5 )
+[node name="name" type="Label" parent="."]
+margin_left = 225.874
+margin_top = 52.4141
+margin_right = 285.874
+margin_bottom = 66.4141
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 0, 0, 1 )
+text = "ZAP STAR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/name/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/name/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="start2" to="." method="_on_start2_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

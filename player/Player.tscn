@@ -1,50 +1,45 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Zap walk.png" type="Texture" id=2]
-[ext_resource path="res://Walk 4.png" type="Texture" id=3]
-[ext_resource path="res://Zap jump.png" type="Texture" id=4]
-[ext_resource path="res://Shoot.png" type="Texture" id=5]
-[ext_resource path="res://player/Button.gd" type="Script" id=6]
-[ext_resource path="res://player/Button2.gd" type="Script" id=7]
+[ext_resource path="res://player/Zap_6_Walk_1 (copy).png" type="Texture" id=2]
+[ext_resource path="res://player/ZAP_6_Walk_2 2.png" type="Texture" id=3]
+[ext_resource path="res://player/ZAP_6_Walk_3 2.png" type="Texture" id=4]
+[ext_resource path="res://player/Zap_6_Shoot.png" type="Texture" id=5]
+[ext_resource path="res://player/ZAP_6_Walk_6.png" type="Texture" id=6]
+[ext_resource path="res://player/ZAP_6_Walk_5.png" type="Texture" id=7]
 [ext_resource path="res://objects.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects.png" type="Texture" id=9]
 [ext_resource path="res://5.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Stars.png" type="Texture" id=11]
-
-
+[ext_resource path="res://player/Zap_6_JUMP.png" type="Texture" id=11]
+[ext_resource path="res://player/Zap_6_Idle 2.png" type="Texture" id=12]
+[ext_resource path="res://player/Zap_6_Walk_4.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "run",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "shoot",
 "speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 16.3424
-height = 22.9019
+radius = 10.6765
+height = 44.7547
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
@@ -65,48 +60,33 @@ region = Rect2( 114, 241.621, 13.5, 14.375 )
 position = Vector2( 1.1095, -5.39946 )
 collision_layer = 513
 script = ExtResource( 1 )
-world_scene = "res://start menu.tscn"
-
-[node name="gun spawn" type="Position2D" parent="."]
-position = Vector2( 37.6652, 2.0558 )
-
-[node name="gun spawn2" type="Position2D" parent="."]
-position = Vector2( -47.6296, 2.3406 )
+world_scene = "res://menu/start menu.tscn"
 
 [node name="sprite" type="AnimatedSprite" parent="."]
-position = Vector2( -6.83497, 5.69581 )
+position = Vector2( -6.75, 22.5 )
 frames = SubResource( 1 )
-animation = "shoot"
+animation = "jump"
+playing = true
+
+[node name="gun spawn" type="Position2D" parent="."]
+position = Vector2( 15.7264, 3.69731 )
+
+[node name="gun spawn2" type="Position2D" parent="."]
+position = Vector2( -32.3776, 3.46172 )
 
 [node name="player_collider" type="CollisionShape2D" parent="."]
-position = Vector2( -5.53853, 10.6979 )
+position = Vector2( -6.786, 23.5 )
+z_index = -6
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="player_camera" type="Camera2D" parent="."]
 position = Vector2( -0.903748, 0.451874 )
+scale = Vector2( 0.907726, 0.831531 )
 current = true
-drag_margin_h_enabled = false
-drag_margin_v_enabled = false
 smoothing_enabled = true
-
-[node name="Button" type="Button" parent="player_camera"]
-margin_left = -205.203
-margin_top = -79.2972
-margin_right = -149.203
-margin_bottom = -59.2972
-custom_colors/font_color_disabled = Color( 1, 0, 0, 1 )
-custom_colors/font_color = Color( 1, 0.0117647, 0.0117647, 1 )
-text = "save"
-script = ExtResource( 6 )
-
-[node name="quit" type="Button" parent="player_camera"]
-margin_left = -266.397
-margin_top = -78.4937
-margin_right = -210.397
-margin_bottom = -58.4937
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "quit"
-script = ExtResource( 7 )
 
 [node name="hert" parent="player_camera" instance=ExtResource( 8 )]
 position = Vector2( -210.735, -105.034 )
@@ -133,10 +113,3 @@ centered = false
 position = Vector2( 1.28157, 2.27834 )
 motion_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 640, 640 )
-
-[node name="Sky" type="Sprite" parent="player_ParallaxBackground/player_ParallaxLayer"]
-position = Vector2( 1576.2, 672.648 )
-scale = Vector2( 4.90885, 2.01246 )
-texture = ExtResource( 11 )
-
-[connection signal="pressed" from="player_camera/quit" to="." method="_on_quit_pressed"]

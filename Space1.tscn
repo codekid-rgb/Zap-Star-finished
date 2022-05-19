@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Stars.png" type="Texture" id=1]
+[ext_resource path="res://player/Untitled_Artwork 3.png" type="Texture" id=2]
+[ext_resource path="res://astroid.png" type="Texture" id=3]
+[ext_resource path="res://Area2D.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "ship move"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Untitled_Artwork 3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3, 4.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 150.797, 119.18 ), Vector2( 244.136, 74.6129 ), Vector2( 389.191, 184.35 ), Vector2( 482.53, 150.294 ), Vector2( 709.152, 141.464 ) ]
+}
+
+[node name="Space1" type="Node2D"]
+
+[node name="Stars" type="Sprite" parent="."]
+position = Vector2( 400.468, 151.257 )
+scale = Vector2( 1.25401, 0.473251 )
+texture = ExtResource( 1 )
+
+[node name="astroid" type="Sprite" parent="Stars"]
+position = Vector2( -111.826, -50.6763 )
+scale = Vector2( 0.540481, 0.794944 )
+texture = ExtResource( 3 )
+
+[node name="astroid2" type="Sprite" parent="Stars"]
+position = Vector2( 216.559, 123.494 )
+scale = Vector2( 0.540481, 0.794944 )
+texture = ExtResource( 3 )
+
+[node name="astroid3" type="Sprite" parent="Stars"]
+position = Vector2( 156.417, -128.242 )
+scale = Vector2( 0.540481, 0.794944 )
+texture = ExtResource( 3 )
+
+[node name="astroid4" type="Sprite" parent="Stars"]
+position = Vector2( 76.8492, 146.764 )
+scale = Vector2( 0.540481, 0.794944 )
+texture = ExtResource( 3 )
+
+[node name="astroid5" type="Sprite" parent="Stars"]
+position = Vector2( -24.8065, -144.46 )
+scale = Vector2( 0.540481, 0.794944 )
+texture = ExtResource( 3 )
+
+[node name="Untitled_Artwork 3" type="Sprite" parent="."]
+position = Vector2( 709.152, 141.464 )
+scale = Vector2( 0.0495594, 0.0214555 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "ship move"
+"anims/ship move" = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="Area2D" method="_on_AnimationPlayer_animation_finished"]

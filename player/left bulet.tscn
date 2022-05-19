@@ -1,26 +1,44 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://player/bulelt left.gd" type="Script" id=1]
-[ext_resource path="res://Bulet .png" type="Texture" id=2]
+[ext_resource path="res://Untitled_Artwork 8.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 11.4127, 5.98505 )
+extents = Vector2( 1.39607, 1.00196 )
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( 0.0590582, -0.314979 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Sprite"]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 collision_layer = 33
 collision_mask = 0
-continuous_cd = 1
+mode = 2
+gravity_scale = 0.0
 contacts_reported = 2
 contact_monitor = true
+can_sleep = false
+linear_velocity = Vector2( -800, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/RigidBody2D"]
-position = Vector2( 2.52447, -2.78956 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -0.0378622, 0.245978 )
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[connection signal="body_entered" from="Sprite/RigidBody2D" to="." method="_on_bullet_body_entered"]
+[node name="Untitled_Artwork 8" type="Sprite" parent="RigidBody2D"]
+position = Vector2( -0.253819, 0.0450072 )
+scale = Vector2( 0.573, -0.437 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[connection signal="body_entered" from="RigidBody2D" to="." method="_on_bullet_body_entered"]

@@ -1,10 +1,10 @@
  extends Node2D
 
 func _process(delta):
-	move_local_x(delta * 800)                                                                                                
+	move_local_x(delta * 1000)                                                                                                
 
 func _on_bullet_body_entered(collider):
-	$bulet.visible = false
+	
 	queue_free()
 	if collider.has_method("do_bullet_damage"):
 		print("Collided with something that takes damage from bullet: ", collider.name)

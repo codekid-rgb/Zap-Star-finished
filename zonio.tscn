@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://zonio.gd" type="Script" id=1]
+[ext_resource path="res://zonio.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27.0581, 29.2293 )
+
+[node name="zonio" type="KinematicBody2D"]
+script = ExtResource( 1 )
+ground_speed = 900
+
+[node name="en_collide" type="CollisionShape2D" parent="."]
+position = Vector2( 41.2452, 16.5861 )
+shape = SubResource( 1 )
+
+[node name="en_floor_sensor" type="RayCast2D" parent="."]
+position = Vector2( 69.4056, 23.075 )
+enabled = true
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 42.7216, 15.3671 )
+texture = ExtResource( 2 )

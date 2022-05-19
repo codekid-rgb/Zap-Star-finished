@@ -11,7 +11,7 @@ func do_bullet_damage(dmg):
 	health = health - dmg
 	if health <= 0:
 		print("gonner")
-		$en_icon.visible = false
+		$slime.visible = false
 		queue_free()
 
 func flip_diretion():

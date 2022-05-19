@@ -1,21 +1,37 @@
 extends KinematicBody2D
-signal spawn_bullet(direction,gloabal_postion)
 
+export(String, FILE, "*.tscn") var world_scene
+export var RESPAWN_HEIGHT = 1000
+
+signal spawn_bullet(direction,gloabal_postion)
 signal fell
-var did_fall = false
 
 const UP = Vector2(0, -1)
-const Gravity = 20
 const acceleration = 50
-const MAX_SPEED = 500
-export var RESPAWN_HEIGHT = 1000
-const jump_hight = -650
+const MAX_SPEED = 700
+const jump_hight = -620
 var motion = Vector2()
+var Gravity = 20
 var invulnerable_time = 0
 var reload_time = 0
 var helth = 20
 var direction = 0
-export(String, FILE, "*.tscn") var world_scene
+var life = 6
+
+
+onready var did_fall = false
+onready var tens_place = $"player_camera/tens place"
+onready var ones_place = $"player_camera/ones place"
+onready var sprite = $sprite
+
+
+
+
+
+
+
+
+
 
 func ones_place(x):
 	return x % 10
@@ -37,10 +53,14 @@ func digit_to_region(digit):
 		9: return Rect2(82,226+16+16,16,16)
 	return Rect2(59,232,16,16)
 
+	
+	
 func reset_player(newPosition):
 	did_fall = false
 	invulnerable_time = 0
 	position = newPosition
+	helth = 20
+	life = life -1
 
 func reset_player_and_warp():
 	helth = 20
@@ -57,10 +77,19 @@ func do_damage(damage):
 			reset_player_and_warp()
 
 func _physics_process(delta):
+	if helth <= 0:
+		life -1
+	globals.life = life
+
 	var tens_reg = digit_to_region(tens_place(helth))
-	$"player_camera/tens place".texture.set_region(tens_reg)
+	tens_place.texture.set_region(tens_reg)
 	var ones_reg = digit_to_region(ones_place(helth))
-	$"player_camera/ones place".texture.set_region(ones_reg)
+	ones_place.texture.set_region(ones_reg)
+#warning-ignore:unused_variable
+	var place = get_global_transform()
+	
+
+
 	
 	if reload_time > 0:
 		reload_time -= delta
@@ -74,50 +103,63 @@ func _physics_process(delta):
 		direction = +1
 		motion.x += acceleration
 		motion.x = min(motion.x+acceleration, MAX_SPEED)
-		$sprite.flip_h = false
-		$sprite.play("run")
+		sprite.flip_h = false
+		sprite.play("run")
+		
 	elif Input.is_action_pressed("ui_left"):
 		direction = -1
 		motion.x = max(motion.x -acceleration, -MAX_SPEED)
-		$sprite.flip_h = true
-		$sprite.play("run")
-	else:
-		$sprite.play("idle")
-		frction = true
+		sprite.flip_h = true
+		sprite.play("run")
 		
+	else:
+		sprite.play("idle")
+		frction = true
+
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = jump_hight
 		if frction == true:
 			motion.x = lerp(motion.x, 0,0.5)
-				
+		
 	else:
 		if motion.y < 0:
-			$sprite.play("jump")
+			sprite.play("jump")
+			
 		else:
-			$sprite.play("fall")
+			sprite.play("jump")
 		if frction == true:
 			motion.x = lerp(motion.x, 0,0.05)
-	
+		
 	if Input.is_action_pressed("ui_select"):
-		$sprite.play("shoot")
-		if reload_time <= 0:
-			reload_time = 0.25
-			var pos
-			if direction < 0:
-				pos = $"gun spawn2".get_global_position()
-			else:
-				pos = $"gun spawn".get_global_position()
-			emit_signal("spawn_bullet",direction,pos)
-	
+		
+			if reload_time <= 0:
+				reload_time = 0.25
+				var pos
+				if direction < 0:
+					pos = $"gun spawn2".get_global_position()
+					sprite.play("shoot")
+				else:
+					pos = $"gun spawn".get_global_position()
+				emit_signal("spawn_bullet",direction,pos)
+				sprite.play("shoot")
 	motion = move_and_slide(motion, UP)
 
 
 	if !did_fall && position.y > RESPAWN_HEIGHT:
 		did_fall = true
 		emit_signal("fell")
+		
+		
+	if life <= 0:
 
-func _on_quit_pressed():
-	get_tree().change_scene(world_scene)
-
-
+		get_tree().change_scene("res://game over.tscn")
+		
+		
+		
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().change_scene("res://menu.tscn")
+	
+	
+#warning-ignore:return_value_discarded
+	

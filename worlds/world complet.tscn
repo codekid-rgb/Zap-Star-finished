@@ -3,7 +3,6 @@
 [ext_resource path="res://worlds/world complet.gd" type="Script" id=1]
 [ext_resource path="res://World complete .png" type="Texture" id=2]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
@@ -27,4 +26,3 @@ region_rect = Rect2( 0, 0, 64, 72 )
 modulate = Color( 0.898039, 0.113725, 0.113725, 1 )
 position = Vector2( 8.79958, -8.79959 )
 shape = SubResource( 1 )
-
